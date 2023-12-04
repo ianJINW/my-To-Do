@@ -1,6 +1,7 @@
 let inpuText = document.querySelector('#inpuText')
 let header = document.querySelector('header h2')
 let submit = document.querySelector('.submit')
+let todoList = document.querySelector('.todoList')
 document.addEventListener('DOMContentLoaded', loadTasks)
 
 function saveTasks () {
@@ -18,7 +19,6 @@ function loadTasks () {
     addTaskToDOM(task)
   })
 }
-
 function deleteTodo () {
   this.parentNode.remove()
   saveTasks()
@@ -33,19 +33,19 @@ function addTaskToDOM (todos) {
   let deleteBtn = document.createElement('button')
   deleteBtn.innerText = 'Delete'
   deleteBtn.style =
-    'background-color:grey; margin-left: 20px; border: 1px solid lightslategray; border-radius: 2px'
+    'background-color:grey; margin-left: 20px; border: 1px solid lightslategray; border-radius: 2px;'
   deleteBtn.onclick = deleteTodo
-  el.style = 'cursor: pointer'
+  el.style = 'cursor: pointer; font-size: large; color: whitesmoke;'
   el.appendChild(document.createTextNode(todos.Title))
   el.appendChild(deleteBtn)
   el.onclick = headeReplace
   todoList.appendChild(el)
 }
-
 submit.addEventListener('click', () => {
   let title = inpuText.value
   let todos
   if (title === '') {
+    header.innerHTML = inpuText.placeholder
     inpuText.placeholder = 'Please input something'
   } else {
     todos = {
@@ -53,9 +53,8 @@ submit.addEventListener('click', () => {
       Date: new Date().getDate(),
       Id: new Date().getTime()
     }
-    saveTasks()
     addTaskToDOM(todos)
+    saveTasks()
     inpuText.value = ''
   }
 })
-let todoList = document.querySelector('.todoList')
