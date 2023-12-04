@@ -28,14 +28,35 @@
         background-color: aquamarine;
       }
       .todoList {
+        margin-top: 50px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: baseline;
         text-align: none;
+        gap: 5px;
+        overflow-y: scroll;
+        max-height: 70vh;
       }
       .todoList li {
         justify-content: flex-start;
+      }
+      .copyright {
+        top: 85%;
+        position: fixed;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        width: 100%;
+        grid-column: 2, 12;
+        background: #333333;
+        border-top: 1px solid gold;
+        color: bisque;
+      }
+      a {
+        color: orangered;
+        text-decoration: overline;
       }
     </style>
   </head>
@@ -50,7 +71,15 @@
     />
     <input type="submit" value="My To Do" class="submit" />
     <ul class="todoList"></ul>
-
+    <footer class="copyright">
+      <p>Copyright 2022 || &copy All rights reserved.</p>
+      <p>
+        Code By:
+        <a href="https://ke.linkedin.com/in/josh-njenga-91b67b29b"
+          >Njenga Ian</a
+        >
+      </p>
+    </footer>
     <script src="main.js"></script>
   </body>
 </html>
