@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My To Do</title>
+    <link
+      rel="shortcut icon"
+      href="/Desktop/eDxawLq2NPZ.jpg"
+      type="image/jpg"
+    />
+    <style>
+      * {
+        text-align: center;
+      }
+      body {
+        background: linear-gradient(
+          to top left,
+          darkcyan,
+          cyan,
+          darkblue,
+          blue
+        );
+        background-attachment: fixed;
+      }
+      input {
+        border-radius: 4px;
+        background-color: aquamarine;
+      }
+      .todoList {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: baseline;
+        text-align: none;
+      }
+      .todoList li {
+        justify-content: flex-start;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="MyToDo"><h2>My To Do</h2></header>
+    <input
+      type="text"
+      name="Add Me"
+      id="inpuText"
+      class="inputText"
+      placeholder="Add To Do"
+    />
+    <input type="submit" value="My To Do" class="submit" />
+    <ul class="todoList"></ul>
+
+    <script src="main.js"></script>
+  </body>
+</html>
