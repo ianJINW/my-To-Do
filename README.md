@@ -1,2 +1,2 @@
 # Tasks 
-~A simple tasks web app~
+**A simple tasks web app
