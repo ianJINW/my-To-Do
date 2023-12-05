@@ -4,6 +4,7 @@ let submit = document.querySelector('.submit')
 let todoList = document.querySelector('.todoList')
 document.addEventListener('DOMContentLoaded', loadTasks)
 
+//saves the tasks to local storege
 function saveTasks () {
   const tasks = Array.from(todoList.children).map(task => ({
     Title: task.firstChild.textContent,
@@ -13,6 +14,7 @@ function saveTasks () {
   localStorage.setItem('tasks', JSON.stringify(tasks))
 }
 
+//loads tasks from local storage if there are any
 function loadTasks () {
   const tasks = JSON.parse(localStorage.getItem('tasks')) || []
   tasks.forEach(task => {
@@ -24,10 +26,12 @@ function deleteTodo () {
   saveTasks()
 }
 
+//replaces the header with the task clicked
 function headeReplace () {
   header.innerHTML = this.firstChild.textContent
 }
 
+//creates the task in list 'el', and delete button, then appends to todoList
 function addTaskToDOM (todos) {
   let el = document.createElement('li')
   let deleteBtn = document.createElement('button')
@@ -45,16 +49,19 @@ submit.addEventListener('click', () => {
   let title = inpuText.value
   let todos
   if (title === '') {
+    //prevent empty tasks
     header.innerHTML = inpuText.placeholder
     inpuText.placeholder = 'Please input something'
   } else {
     todos = {
       Title: title,
+      //get the date and time task was created
       Date: new Date().getDate(),
       Id: new Date().getTime()
     }
     addTaskToDOM(todos)
     saveTasks()
+    //resets inpuText value 
     inpuText.value = ''
   }
 })
